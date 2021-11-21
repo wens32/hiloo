@@ -1,8 +1,0 @@
-query PublicChats {
-  publicChats {
-    id
-    name
-    isPublic
-    __typename
-  }
-}

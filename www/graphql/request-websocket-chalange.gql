@@ -1,7 +1,0 @@
-mutation requestWebSocketChallenge {
-  requestWebSocketChallenge {
-    challenge
-    key
-    __typename
-  }
-}
