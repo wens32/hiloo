@@ -1,0 +1,83 @@
+query initialUserRequest {
+  user {
+    ...UserAuth
+    __typename
+  }
+}
+
+fragment UserAuth on User {
+  id
+  name
+  email
+  hasPhoneNumberVerified
+  hasEmailVerified
+  hasPassword
+  intercomHash
+  createdAt
+  hasTfaEnabled
+  mixpanelId
+  hasOauth
+  isKycBasicRequired
+  isKycExtendedRequired
+  isKycFullRequired
+  kycBasic {
+    id
+    status
+    __typename
+  }
+  kycExtended {
+    id
+    status
+    __typename
+  }
+  kycFull {
+    id
+    status
+    __typename
+  }
+  flags {
+    flag
+    __typename
+  }
+  roles {
+    name
+    __typename
+  }
+  balances {
+    ...UserBalanceFragment
+    __typename
+  }
+  activeClientSeed {
+    id
+    seed
+    __typename
+  }
+  previousServerSeed {
+    id
+    seed
+    __typename
+  }
+  activeServerSeed {
+    id
+    seedHash
+    nextSeedHash
+    nonce
+    blocked
+    __typename
+  }
+  __typename
+}
+
+fragment UserBalanceFragment on UserBalance {
+  available {
+    amount
+    currency
+    __typename
+  }
+  vault {
+    amount
+    currency
+    __typename
+  }
+  __typename
+}

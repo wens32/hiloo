@@ -1,0 +1,35 @@
+mutation KenoBet($amount: Float!, $currency: CurrencyEnum!, $numbers: [Int!]!, $identifier: String!, $risk: CasinoGameKenoRiskEnum) {
+  kenoBet(amount: $amount, currency: $currency, numbers: $numbers, risk: $risk, identifier: $identifier) {
+    ...CasinoBetFragment
+    state {
+      ...KenoStateFragment
+      __typename
+    }
+    __typename
+  }
+}
+
+fragment CasinoBetFragment on CasinoBet {
+  id
+  active
+  payoutMultiplier
+  amountMultiplier
+  amount
+  payout
+  updatedAt
+  currency
+  game
+  user {
+    id
+    name
+    __typename
+  }
+  __typename
+}
+
+fragment KenoStateFragment on CasinoGameKeno {
+  drawnNumbers
+  selectedNumbers
+  risk
+  __typename
+}

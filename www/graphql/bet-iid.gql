@@ -1,0 +1,7 @@
+query BetIid($betId: String!) {
+  bet(betId: $betId) {
+    id
+    iid
+    __typename
+  }
+}

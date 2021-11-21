@@ -1,0 +1,24 @@
+mutation RotateSeedPair($seed: String!) {
+  rotateSeedPair(seed: $seed) {
+    clientSeed {
+      user {
+        id
+        activeClientSeed {
+          id
+          seed
+          __typename
+        }
+        activeServerSeed {
+          id
+          nonce
+          seedHash
+          nextSeedHash
+          __typename
+        }
+        __typename
+      }
+      __typename
+    }
+    __typename
+  }
+}

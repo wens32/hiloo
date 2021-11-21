@@ -1,0 +1,34 @@
+mutation LimboBet($amount: Float!, $multiplierTarget: Float!, $currency: CurrencyEnum!, $identifier: String!) {
+  limboBet(amount: $amount, currency: $currency, multiplierTarget: $multiplierTarget, identifier: $identifier) {
+    ...CasinoBetFragment
+    state {
+      ...LimboStateFragment
+      __typename
+    }
+    __typename
+  }
+}
+
+fragment CasinoBetFragment on CasinoBet {
+  id
+  active
+  payoutMultiplier
+  amountMultiplier
+  amount
+  payout
+  updatedAt
+  currency
+  game
+  user {
+    id
+    name
+    __typename
+  }
+  __typename
+}
+
+fragment LimboStateFragment on CasinoGameLimbo {
+  result
+  multiplierTarget
+  __typename
+}

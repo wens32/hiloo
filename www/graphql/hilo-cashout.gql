@@ -1,0 +1,47 @@
+mutation HiloCashout($identifier: String!) {
+  hiloCashout(identifier: $identifier) {
+    ...CasinoBetFragment
+    state {
+      ...HiloStateFragment
+      __typename
+    }
+    __typename
+  }
+}
+
+fragment CasinoBetFragment on CasinoBet {
+  id
+  active
+  payoutMultiplier
+  amountMultiplier
+  amount
+  payout
+  updatedAt
+  currency
+  game
+  user {
+    id
+    name
+    __typename
+  }
+  __typename
+}
+
+fragment HiloStateFragment on CasinoGameHilo {
+  startCard {
+    suit
+    rank
+    __typename
+  }
+  rounds {
+    card {
+      suit
+      rank
+      __typename
+    }
+    guess
+    payoutMultiplier
+    __typename
+  }
+  __typename
+}
